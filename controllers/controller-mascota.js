@@ -36,7 +36,7 @@ exports.save=async (req,res)=>{
 }
 exports.update=async (req,res)=>{
     const {id}=req.params;
-    const {code,nombre,tipo,idpropietario}=req.body;
+    const {nombre,tipo,idpropietario}=req.body;
     try{
         const masc=await mascota.findById(id)
         if(!masc){
@@ -61,7 +61,6 @@ exports.update=async (req,res)=>{
                 await newPro.save();
             }
 
-            masc.id=code;
             masc.nombre=nombre;
             masc.tipo=tipo;
             masc.propietario=idpropietario;
